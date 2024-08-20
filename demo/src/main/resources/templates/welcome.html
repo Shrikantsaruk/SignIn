@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome</title>
+</head>
+<style  type="text/css">
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  gap: 10px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.grid-container > div {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 24px; 
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.grid-container > div:hover {
+  background-color: #0056b3;
+}
+
+.btn-link {
+  position: absolute;
+  right: 50px;
+  top: 24px;
+  z-index: 9;
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+  color: #4d4f56;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+  color: #007bff;
+}
+
+.dt-buttons {
+  float: right;
+  margin-top: 10px;
+}
+</style>
+<body>
+
+<div class="grid-container">
+  <form th:action="@{/logout}" method="post">
+	<button type="submit" class="btn-link" > Logout</button> 
+  </form>
+</div>
+<h1>Welcome, <span th:text="${username}"></span></h1>
+
+</body>
+</html>
